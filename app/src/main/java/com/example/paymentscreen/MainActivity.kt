@@ -72,14 +72,15 @@ class MainActivity : ComponentActivity() {
   fun homeScreen()
 {
       Column (verticalArrangement = Arrangement.Top,
-          modifier = Modifier.fillMaxSize()){
-          Spacer(modifier = Modifier.size(15.dp))
+          modifier = Modifier.fillMaxSize())
+      {
+          Spacer(modifier = Modifier.size(10.dp))
           Row (){
               OutlinedButton(onClick = { /*TODO*/ }) {
-                  Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
+                  Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "") // the back arrow button
                   
               }
-              Spacer(modifier = Modifier.width(200.dp))
+              Spacer(modifier = Modifier.width(200.dp)) // space between arrow button and scan card button
               Row (verticalAlignment = Alignment.Top){
                   ElevatedButton(onClick = { /*TODO*/ },
                       colors = ButtonDefaults.buttonColors(
@@ -89,8 +90,8 @@ class MainActivity : ComponentActivity() {
 
 
                   }
-              }
-          }
+              } // scan card button
+          } // back arrow button
           Column (verticalArrangement = Arrangement.SpaceEvenly){
               Text(text = "Pay with a new card", fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.Bold, fontSize = 35.sp, modifier  = Modifier.padding(25.dp),
               )
@@ -102,30 +103,72 @@ class MainActivity : ComponentActivity() {
               Column {
                   Text(text = "card number", fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.W700, modifier = Modifier.padding(20.dp))
 
-                 OutlinedTextField(value = "XXXXXX7352", onValueChange = {}, modifier = Modifier
-                     .fillMaxWidth()
-                     .padding(16.dp))
+                 OutlinedTextField(value = "XXXXXX7352", onValueChange = {}, colors = TextFieldDefaults.outlinedTextFieldColors(
+                     unfocusedBorderColor = Black,
+
+                 ),
+                     modifier = Modifier
+                         .fillMaxWidth()
+                         .padding(16.dp))
+
 
               }
 
-              Column (modifier = Modifier.padding(20.dp)){
-                  Text(text = "Expiry Date")
-                  Spacer(modifier = Modifier.size(20.dp))
-                  Row {
+              Row (modifier = Modifier.padding(20.dp)) {
+                  Column() {
+                      Text(
+                          text = "Expiry Date",
+                          fontFamily = FontFamily.SansSerif,
+                          fontWeight = FontWeight.W500
+                      )
+                      Spacer(modifier = Modifier.size(16.dp))
 
+                      Row() {
 
-                      OutlinedTextField(value = " MM", onValueChange = {},modifier = Modifier.width(80.dp),colors = TextFieldDefaults.outlinedTextFieldColors(
-                          focusedBorderColor = Green,
-                          unfocusedBorderColor = Black))
-                      Spacer(modifier = Modifier.size(20.dp))
-                      Row {
-                          OutlinedTextField(value = " YY", onValueChange = {},modifier = Modifier.width(110.dp),colors = TextFieldDefaults.outlinedTextFieldColors(
-                              focusedBorderColor = Green,
-                              unfocusedBorderColor = Black))
+                          OutlinedTextField(
+                              value = "MM",
+                              onValueChange = {},
+                              Modifier.width(100.dp),
+                              colors = TextFieldDefaults.outlinedTextFieldColors(
+                                  unfocusedBorderColor = Black
+                              )
+                          )
+                          Spacer(modifier = Modifier.size(20.dp))
+                          OutlinedTextField(
+                              value = "YY",
+                              onValueChange = {},
+                              Modifier.width(90.dp),
+                              colors = TextFieldDefaults.outlinedTextFieldColors(
+                                  unfocusedBorderColor = Black
+                              )
+                          )
+
+                          Spacer(modifier = Modifier.size(30.dp))
+
                       }
+
                   }
+                  Column() {
+                      Text(
+                          text = "Security Code",
+                          fontFamily = FontFamily.SansSerif,
+                          fontWeight = FontWeight.W500
+                      )
+                      Spacer(modifier = Modifier.size(16.dp))
+                      OutlinedTextField(
+                          value = "CVV/CVC",
+                          onValueChange = {},
+                          Modifier.width(140.dp,),
+                          colors = TextFieldDefaults.outlinedTextFieldColors(
+                              unfocusedBorderColor = Black
+                          )
+                      )
+                  }
+
+
               }
 
+              Text(text = "Save this card for future payments",fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.W500)
 
           }
       }
