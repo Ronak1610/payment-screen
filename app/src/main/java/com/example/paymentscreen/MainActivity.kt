@@ -1,7 +1,5 @@
 package com.example.paymentscreen
 
-import android.graphics.fonts.FontStyle
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,15 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFrom
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -29,25 +22,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.AbsoluteAlignment
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
-import androidx.compose.ui.graphics.Color.Companion.Green
-import androidx.compose.ui.graphics.Color.Companion.Yellow
-import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.text.font.FontFamily
 import com.example.paymentscreen.ui.theme.PaymentScreenTheme
 
 class MainActivity : ComponentActivity() {
@@ -168,7 +155,18 @@ class MainActivity : ComponentActivity() {
 
               }
 
-              Text(text = "Save this card for future payments",fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.W500)
+              Text(text = "Save this card for future payments",fontFamily = FontFamily.SansSerif, fontWeight = FontWeight.W500, modifier=Modifier.padding(16.dp))
+              Spacer(modifier = Modifier.size(180.dp))
+              ElevatedButton(onClick = { /*TODO*/ },
+                  modifier = Modifier
+                      .padding(30.dp)
+                      .width(300.dp)
+                      .height(50.dp), colors = ButtonDefaults.buttonColors(
+                  containerColor = Color.Blue
+                  )) {
+                  Text(text = "Pay")
+                  
+              }
 
           }
       }
